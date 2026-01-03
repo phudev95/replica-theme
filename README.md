@@ -1,43 +1,34 @@
 # Replica [![LICENSE MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-Github style replication for hexo theme. 
 
-*If you are using Gatsby, kindly check https://github.com/sabrinaluo/gatsby-theme-replica*
+Github style replication for hexo theme.
 
-Because we love octocat! :two_hearts:
-[Click here to view the demo site](//sabrinaluo.github.io/tech)
-
-Issues & Contributions are welcome! :stuck_out_tongue:
-
-## Version
-#### v1.0  
-Github UI before 2017, which uses the grey navbar
-
-#### v2.0 (~~in progress~~) lack of maintenance
-Github UI in 2017, which uses the black navbar
-
-## Setup
 #### Install
+
 ```
-git clone git@github.com:sabrinaluo/hexo-theme-replica.git themes/replica
+git clone git@github.com:phudev95/replica-theme.git themes/replica
 ```
+
 or
+
 ```
-git clone https://github.com/sabrinaluo/hexo-theme-replica.git themes/replica
+git submodule add https://github.com/phudev95/replica-theme themes/replica
 ```
 
 #### Configure
+
 Set `theme: replica` in `_config.yml` (the one in your root folder)
 
-**PLEASE NOTE** 
-Modifying `blog_root/themes/replica/_config.yml` directly is **NOT** recommended.  
+**PLEASE NOTE**
+Modifying `blog_root/themes/replica/_config.yml` directly is **NOT** recommended.
 It's suggested to configure your site through `blog_root/_config.yml` **(root folder).**
 
 Here is a sample of `blog_root/_config.yml`
+
 <details>
 <summary>CLICK ME</summary>
 <p>
 
-``` yml
+```yml
 # Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
@@ -125,7 +116,7 @@ disqus: # DISQUS ID
 location: Hong Kong
 email: xx@example.com
 
-logo: 
+logo:
 avatar: https://avatars2.githubusercontent.com/u/5300359?v=4&s=460
 social:
   github: https://github.com/sabrinaluo
@@ -136,60 +127,3 @@ social:
 flagcounter_href: # https://info.flagcounter.com/xxxx
 flagcounter_img_src: # https://s01.flagcounter.com/xxxx
 ```
-
-#### Update
-``` bash
-cd themes/replica
-git pull
-```
-
-In case you want the old version with grey navbar
-``` bash
-cd themes/replica
-git checkout 1.0 # AKA `git checkout -b 1.0 origin/1.0`
-```
-</p>
-</details>
-
-## Available Widgets
-~~多说~~ (Duoshuo stopped the service since June, 2017)  
-百度统计  
-Disqus  
-Google Analytics  
-Google Custom Search Engine[^1]
-
-## FAQ
-#### Q: How can I use category and tag?
-A: Create below files under `source` folder:
-
-`blog_root/source/categories/index.md`:
-
-```
----
-title: categories
-date: 2016-01-21 18:46:15
----
-```
-
-`blog_root/source/tags/index.md`:
-
-```
----
-title: tags
-date: 2016-01-21 18:45:55
----
-```
-
-## License
-The MIT License[^2]
-
-Copyright (c) 2015-2019 Hiitea <luohaojing@gmail.com>
-
-[^1]: https://cse.google.com/
-[^2]: https://opensource.org/licenses/MIT
-
-## Buy me coffee :yum:
-BTC: 19U6USzi7WaFmY3DTkgn67EzYpTqZPNwRG  
-![image](https://user-images.githubusercontent.com/5300359/30433338-cb7a9e48-9996-11e7-8e17-55f582b56e48.png)
-
-[![Coffee Fund](https://user-images.githubusercontent.com/5300359/53497706-baf13a00-3adf-11e9-8223-5aa1c63b8779.png)](https://user-images.githubusercontent.com/5300359/53497706-baf13a00-3adf-11e9-8223-5aa1c63b8779.png)
