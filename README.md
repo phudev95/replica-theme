@@ -119,8 +119,9 @@ email: xx@example.com
 logo:
 avatar: https://avatars2.githubusercontent.com/u/5300359?v=4&s=460
 social:
-  github: https://github.com/sabrinaluo
-  weibo: http://weibo.com/206663121
+  facebook:
+  github:
+  twitter:
   linkedin:
 
 # flagcounter

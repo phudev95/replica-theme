@@ -4,6 +4,7 @@ theme.social = theme.social || {};
 var github = config.social.github || theme.social.github;
 var twitter = config.social.twitter || theme.social.twitter;
 var linkedin = config.social.linkedin || theme.social.linkedin;
+var facebook = config.social.facebook || theme.social.facebook;
 var location = config.location || theme.location;
 var url = config.url;
 var flagcounter_href = config.flagcounter_href;
@@ -25,6 +26,8 @@ var currentYear = new Date().getUTCFullYear();
       <li><a href="<%= twitter %>">Twitter</a></li>
       <% }if(linkedin){ %>
       <li><a href="<%= linkedin %>">Linkedin</a></li>
+      <% }if(facebook){ %>
+      <li><a href="<%= facebook %>">Facebook</a></li>
       <% } %>
     </ul>
     <div class="footer-theme-info">
