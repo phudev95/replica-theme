@@ -1,0 +1,51 @@
+<%
+const p = page.path || '';
+const pathWithoutIndex = p.replace(/\/index\.html$/, '');
+
+let title_by_url = '';
+let description_by_url = '';
+
+if (pathWithoutIndex === 'categories') {
+  title_by_url = 'Tất cả Categories - Khám phá mọi chuyên mục trên Blog';
+  description_by_url = 'Khám phá danh sách đầy đủ các categories của blog, giúp bạn dễ dàng tìm kiếm bài viết theo từng chủ đề yêu thích.';
+}
+else if (pathWithoutIndex.startsWith('categories/')) {
+  const categoryName = pathWithoutIndex.replace('categories/', '');
+  title_by_url = 'Category: ' + categoryName;
+  description_by_url = 'Danh sách các bài viết của blog với category ' + categoryName + ', giúp bạn tìm nội dung liên quan dễ dàng.';
+}
+else if (pathWithoutIndex === 'tags') {
+  title_by_url = 'Tất cả Tags - Khám phá mọi tags trên Blog';
+  description_by_url = 'Xem danh sách chi tiết mọi thẻ (tags) để tìm nhanh những bài viết liên quan đến chủ đề bạn quan tâm.';
+}
+else if (pathWithoutIndex.startsWith('tags/')) {
+  const tagName = pathWithoutIndex.replace('tags/', '');
+  title_by_url = 'Tag: ' + tagName;
+  description_by_url = 'Danh sách các bài viết của blog với tag ' + tagName + ', giúp bạn tìm nội dung liên quan dễ dàng.';
+}
+else if (pathWithoutIndex.startsWith('archives')) {
+  title_by_url = 'Tất cả bài viết - Khám phá nội dung Blog | ' + config.title;
+  description_by_url = 'Khám phá ngay những bài viết mới nhất trên blog, bao gồm mẹo lập trình, kỹ năng mềm và nhiều chủ đề thú vị khác.';
+}
+else if (pathWithoutIndex.startsWith('search')) {
+  title_by_url = 'Tìm kiếm bài viết | ' + config.title;
+  description_by_url = 'Sử dụng tính năng tìm kiếm để nhanh chóng tìm các bài viết, hướng dẫn, và nội dung bạn quan tâm trên blog.';
+}
+
+let final_title = (title_by_url || page.title || config.title) + (page.title ? ' | ' + config.title : '');
+let final_description = description_by_url || page.description || config.description;
+let cover = config.url + (page.cover || config.default_cover);
+%>
+<title><%= final_title %></title>
+<meta name="description" content="<%= final_description %>">
+
+<meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>">
+<meta property="og:title" content="<%= final_title %>">
+<meta property="og:description" content="<%= final_description %>">
+<meta property="og:url" content="<%= full_url_for(page.path.replace(/index\.html$/, '')) %>">
+<meta property="og:image" content="<%= cover %>">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= final_title %>">
+<meta name="twitter:description" content="<%= final_description %>">
+<meta name="twitter:image" content="<%= cover %>">

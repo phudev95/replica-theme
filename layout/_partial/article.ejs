@@ -1,0 +1,63 @@
+<%
+var publishTimestamp = page.date.valueOf();
+var article_edit = config.article_edit || {};
+%>
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    <%= config.author || '' %>
+
+    <span class="post-date float-right" title="<%= formatDateTime(publishTimestamp) %>">
+      <%= formatDate(publishTimestamp) %>
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1><%= page.title || 'Untitle' %></h1>
+    <%- page.content %>
+
+    <% if (page.tags && page.tags.length > 0) { %>
+      <br />
+      <br />
+      <hr />
+      <section class="related-posts">
+        <h2>Tags</h2>
+        <ul class="tag-list clearfix">
+          <% page.tags.forEach(function(tag, index) { %>
+            <li class="tag-list-item">
+              <a href="<%= url_for(tag.path) %>" title="Xem tất cả các bài viết được gắn thẻ với <%= tag.name %>" rel="tag">
+                <%= tag.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+
+    <% if (page.related_posts && page.related_posts.length > 0) { %>
+      <section class="related-posts">
+        <h2>Related posts</h2>
+        <ul>
+        <%
+        for (const path of page.related_posts) {
+          var posts = site.posts.filter(function(post) {
+            return post.path === path;
+          });
+          if (posts && posts.length > 0) {
+            posts.each(function(apost) {
+        %>
+          <li><a href="<%- url_for(apost.path) %>" title="<%= apost.title || '(no title)' %>"><%= apost.title || '(no title)' %></a></li>
+        <%
+            });
+          }
+        }
+        %>
+        </ul>
+      </section>
+  <% } %>
+  </article>
+</div>
+
+<% if (config.enabledScripts) { %>
+  <%- partial('_widget/disqus') %>
+<% } %>

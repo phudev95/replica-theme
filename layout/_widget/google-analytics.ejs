@@ -1,0 +1,10 @@
+<% var GA = config.google_analytics || config.ga || theme.google_analytics; if(GA){ %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= GA %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%= GA %>');
+</script>
+<% } %>

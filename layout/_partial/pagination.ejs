@@ -1,0 +1,21 @@
+<div class="pagination">
+  <% if (page.prev) { %>
+    <a class="prev" href="<%= url_for(page.prev_link || ('page/' + page.prev)) %>">← Trang trước</a>
+  <% } else { %>
+    <span class="prev disabled">← Trang trước</span>
+  <% } %>
+
+  <% for (let i = 1; i <= page.total; i++) { %>
+    <% if (i === page.current) { %>
+      <span class="page-number current"><%= i %></span>
+    <% } else { %>
+      <a class="page-number" href="<%= url_for(i === 1 ? page.base : page.base + 'page/' + i) %>"><%= i %></a>
+    <% } %>
+  <% } %>
+
+  <% if (page.next) { %>
+    <a class="next" href="<%= url_for(page.next_link || ('page/' + page.next)) %>">Trang sau →</a>
+  <% } else { %>
+    <span class="next disabled">Trang sau →</span>
+  <% } %>
+</div>

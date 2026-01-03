@@ -1,0 +1,29 @@
+.pagination
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  gap: 0.5em
+  margin: 2.5em 0 2em
+
+  .prev
+    margin-right: auto
+
+  .next
+    margin-left: auto
+
+  a, span
+    padding: 0.5em 0.8em
+    text-decoration: none
+    border: 1px solid $grey-border
+    border-radius: 4px
+    color: $grey-dark
+
+  .current
+    background-color: $grey-dark
+    color: $white
+    font-weight: bold
+
+  .disabled
+    pointer-events: none
+    color: $grey-text-disabled
+    border-color: $grey-border-light

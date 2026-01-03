@@ -1,0 +1,44 @@
+# left-side user profile
+avatar:
+logo:
+location:
+email:
+social:
+  github:
+  twitter:
+  linkedin:
+
+# navbar menu
+menu:
+ archives: true
+ tags: true
+ categories: true
+ search: true
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+search_dir: search
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+rss_dir: atom.xml
+
+# widget
+ga: # google analytics tracking code UA-XXXXXXX-X
+baidutongji: # baidutongji tracking code
+duoshuo: # duoshuo username
+gcs: # google custom search code
+
+# flagcounter
+flagcounter_href: # https://info.flagcounter.com/xxxx
+flagcounter_img_src: # https://s01.flagcounter.com/xxxx
+
+# article_edit 在文章页显示跳转到编辑页
+article_edit:
+  enable: false #是否启用
+  prefix: https://github.com/xxx/xxx/edit/master/source/  #编辑页前缀
