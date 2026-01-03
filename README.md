@@ -8,10 +8,10 @@ Github style replication for hexo theme.
 git clone git@github.com:phudev95/replica-theme.git themes/replica
 ```
 
-or
+Update the replica inside your blog
 
 ```
-git submodule add https://github.com/phudev95/replica-theme themes/replica
+git submodule update --remote themes/replica
 ```
 
 #### Configure
