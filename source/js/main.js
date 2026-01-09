@@ -62,7 +62,7 @@ function imageViewer() {
             flipHorizontal: 1,
             flipVertical: 1,
             prev: 1,
-            play: 1,
+            play: 0,
             next: 1,
             download: function() {
               var a = document.createElement('a');
