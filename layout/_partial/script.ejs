@@ -1,8 +1,28 @@
-<%- partial('_widget/google-custom-search') %>
 <script>
   var globalData = globalData || {};
   globalData.layout = "<%= page.layout %>";
 </script>
-<script src="<%= config.root %>lib/viewer/viewer.min.js"></script>
-<script src="<%= config.root %>js/util.js?r=4"></script>
-<script src="<%= config.root %>js/main.js?r=4"></script>
+
+<% if (config.enabledScripts) { %>
+  <%- partial('_widget/google-custom-search') %>
+  <%- partial('_widget/google-analytics') %>
+<% } %>
+
+<% if (is_post()) { %>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "<%= page.title %>",
+    "author": {
+      "@type": "Person",
+      "name": "<%= page.author || config.author %>"
+    },
+    "datePublished": "<%= page.date.format('YYYY-MM-DD') %>",
+    "dateModified": "<%= page.updated.toISOString() %>",
+    "description": "<%= page.description || config.description %>",
+    "url": "<%= full_url_for(page.path.replace(/index\.html$/, '')) %>",
+    "image": "<%= config.url + (page.cover || config.default_cover) %>"
+  }
+</script>
+<% } %>

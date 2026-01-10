@@ -19,11 +19,6 @@ var recentPosts = page.posts.data.slice(0, 10);
               <i class="fa fa-bars"></i>
               <a href="<%= url_for(post.path) %>" title="<%= post.title %>"><%= post.title || 'Untitled' %></a>
             </h5>
-            <p class="post-description desktop-only">
-            <%= post.summary || post.content
-                      .replace(/<[^>]*>/ig, ' ')
-                      .substr(0, 50) %>
-            </p>
             <p class="post-info desktop-only">
               <span>
                 <% if(post.categories.data[0]){ %>
@@ -33,6 +28,11 @@ var recentPosts = page.posts.data.slice(0, 10);
                 <% } %>
               </span>
               <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
+            </p>
+            <p class="post-description desktop-only">
+            <%= post.summary || post.content
+                      .replace(/<[^>]*>/ig, ' ')
+                      .substr(0, 50) %>
             </p>
           </div>
         </li>

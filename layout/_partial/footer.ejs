@@ -37,8 +37,8 @@ var currentYear = new Date().getUTCFullYear();
     </div>
     <% if(flagcounter_href && config.enabledScripts){ %>
     <div class="footer-pageview">
-        <a href="<%= flagcounter_href %>">
-          <img src="<%= flagcounter_img_src %>">
+        <a href="<%= flagcounter_href %>" aria-label="Flag Counter - Visitor statistics">
+          <img src="<%= flagcounter_img_src %>" alt="Flag Counter">
         </a>
     </div>
     <% } %>

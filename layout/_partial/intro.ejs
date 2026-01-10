@@ -13,7 +13,7 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
 
 <div class="blog-intro">
   <div class="blog-intro-user">
-    <img class="avatar" src="<%= avatar %>">
+    <img class="avatar" src="<%= avatar %>" alt="<%= config.author %> avatar">
     <div class="user-name">
       <div class="blog-title"><%= config.title %></div>
       <div class="blog-author"><%= config.author %></div>
@@ -62,13 +62,13 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
     <h4>Social Media</h4>
     <ul>
       <% if(github){ %>
-      <li class="social-media-item"><a href="<%= github %>" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li class="social-media-item"><a href="<%= github %>" aria-label="Github" target="_blank"><i aria-hidden="true" class="fa fa-github"></i></a></li>
       <% } if(twitter){ %>
-      <li class="social-media-item"><a href="<%= twitter %>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      <li class="social-media-item"><a href="<%= twitter %>" aria-label="Twitter" target="_blank"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
       <% } if(linkedin){ %>
-      <li class="social-media-item"><a href="<%= linkedin %>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <li class="social-media-item"><a href="<%= linkedin %>" aria-label="LinkedIn" target="_blank"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
       <% } if(facebook){ %>
-      <li class="social-media-item"><a href="<%= facebook %>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li class="social-media-item"><a href="<%= facebook %>" aria-label="Facebook" target="_blank"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
       <% } %>
     </ul>
   </div>

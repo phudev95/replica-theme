@@ -5,7 +5,7 @@ var favicon = config.favicon || 'https://github.githubassets.com/favicon.ico';
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%- partial('_widget/title_description') %>
   <% if(tags){ %><meta name="keywords" content="<%= tags.map(function(tag) { return tag.name }).join(',') %>"><% } %>
   <meta name="author" content="<%= config.author %>">
@@ -14,33 +14,37 @@ var favicon = config.favicon || 'https://github.githubassets.com/favicon.ico';
   <meta name="theme-color" content="#1e2327">
   <link rel="canonical" href="<%= full_url_for(page.path.replace(/index\.html$/, '')) %>">
   <link rel="icon" type="image/x-icon" href="<%= favicon %>">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Source+Code+Pro">
-  <link rel="stylesheet" href="<%= config.root %>lib/viewer/viewer.min.css">
-  <link rel="stylesheet" href="<%= config.root %>css/main.css?r=4">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <% if (config.enabledScripts) { %>
-    <%- partial('_widget/google-analytics') %>
+  <link rel="stylesheet" href="<%= config.root %>css/main.css?r=<%= config.cacheVersion %>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+  <% if (is_post()) { %>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="<%= config.root %>lib/viewer/viewer.min.css" as="style" onload="this.rel='stylesheet'">
+  <% } %>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <% if (is_post()) { %>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
+      <link rel="stylesheet" href="<%= config.root %>lib/viewer/viewer.min.css">
+    <% } %>
+  </noscript>
+
+  <!-- Scripts -->
+  <script>var tbGlobalData = tbGlobalData || {};</script>
+  <% if (is_home()) { %>
+  <script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.28-csp/vue.min.js"></script>
+  <script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
   <% } %>
   <% if (is_post()) { %>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "<%= page.title %>",
-      "author": {
-        "@type": "Person",
-        "name": "<%= page.author || config.author %>"
-      },
-      "datePublished": "<%= page.date.format('YYYY-MM-DD') %>",
-      "dateModified": "<%= page.updated.toISOString() %>",
-      "description": "<%= page.description || config.description %>",
-      "url": "<%= full_url_for(page.path.replace(/index\.html$/, '')) %>",
-      "image": "<%= config.url + (page.cover || config.default_cover) %>"
-    }
-  </script>
+  <script defer="defer" src="<%= config.root %>lib/viewer/viewer.min.js"></script>
   <% } %>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.28-csp/vue.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael.min.js"></script>
+  <script defer="defer" src="<%= config.root %>js/util.js?r=<%= config.cacheVersion %>"></script>
+  <script defer="defer" src="<%= config.root %>js/main.js?r=<%= config.cacheVersion %>"></script>
 </head>
