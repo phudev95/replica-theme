@@ -39,7 +39,7 @@ function backToTop() {
 }
 
 function imageViewer() {
-  if (globalData.layout !== "post") return;
+  if (tbGlobalData.layout !== "post") return;
   document.addEventListener("DOMContentLoaded", function () {
     // Select all images in post content
     var postContent = document.querySelector(".post-content");

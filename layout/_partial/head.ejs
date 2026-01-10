@@ -36,7 +36,10 @@ var favicon = config.favicon || 'https://github.githubassets.com/favicon.ico';
   </noscript>
 
   <!-- Scripts -->
-  <script>var tbGlobalData = tbGlobalData || {};</script>
+  <script>
+    var tbGlobalData = tbGlobalData || {};
+    tbGlobalData.layout = "<%= page.layout %>";
+  </script>
   <% if (is_home()) { %>
   <script defer="defer" src="<%= config.root %>lib/vue/1.0.28-csp/vue.min.js"></script>
   <script defer="defer" src="<%= config.root %>lib/moment/2.11.2/moment.min.js"></script>
