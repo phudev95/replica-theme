@@ -22,14 +22,14 @@ var favicon = config.favicon || 'https://github.githubassets.com/favicon.ico';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="<%= config.root %>lib/font-awesome/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
   <% if (is_post()) { %>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="<%= config.root %>lib/viewer/viewer.min.css" as="style" onload="this.rel='stylesheet'">
   <% } %>
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<%= config.root %>lib/font-awesome/css/font-awesome.min.css">
     <% if (is_post()) { %>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro">
       <link rel="stylesheet" href="<%= config.root %>lib/viewer/viewer.min.css">
