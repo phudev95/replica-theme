@@ -33,12 +33,12 @@
 .mermaid-diagram-iframe-container {
   position: relative;
   width: 100%;
-  min-height: 200px;
+  min-height: 130px;
 }
 
 .mermaid-diagram-iframe {
   width: 100%;
-  min-height: 200px;
+  min-height: 130px;
   border: none;
   background: transparent;
 }
@@ -176,22 +176,17 @@
   }
 
   /* Hide grid panel by default on mobile */
-  .mermaid-viewer-grid-panel {
-    display: none;
-    bottom: 52px; /* Position above toggle button */
+  .mermaid-diagram-wrapper .mermaid-diagram-iframe-container .mermaid-viewer-grid-panel {
+    opacity: 0;
+    bottom: 52px;
   }
 
   /* Show grid panel when toggled */
   .mermaid-diagram-iframe-container.show-controls .mermaid-viewer-grid-panel {
-    display: grid;
+    opacity: 1;
   }
 
-  .mermaid-viewer-grid-panel .btn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .mermaid-viewer-grid-panel .empty-cell {
+  .mermaid-viewer-grid-panel .btn, .mermaid-viewer-grid-panel .empty-cell {
     width: 28px;
     height: 28px;
   }
