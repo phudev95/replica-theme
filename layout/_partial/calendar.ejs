@@ -1,4 +1,9 @@
-<div class="calendar-container" id="calendar">
+<div class="calendar-skeleton" id="calendar-skeleton">
+  <div class="skeleton-header"></div>
+  <div class="skeleton-graph"></div>
+</div>
+
+<div class="calendar-container" id="calendar" v-cloak>
   <div class="calendar">
     <h3>
       {{posts.length}} contributions in the last year

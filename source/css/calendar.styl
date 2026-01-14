@@ -1,3 +1,33 @@
+[v-cloak]
+  display: none !important
+
+@keyframes skeleton-shimmer
+  0%
+    background-position: -200px 0
+  100%
+    background-position: calc(200px + 100%) 0
+
+.calendar-skeleton
+  @media (max-width: $screen-sm)
+    display: none
+  .skeleton-header
+    height: 24px
+    width: 260px
+    margin-bottom: 8px
+    background: linear-gradient(90deg, $grey-light 25%, $grey-border 50%, $grey-light 75%)
+    background-size: 200px 100%
+    animation: skeleton-shimmer 1.5s ease-in-out infinite
+    border-radius: 4px
+  .skeleton-graph
+    padding: 8px 0
+    border-radius: 3px
+    text-align: center
+    margin-bottom: 32px
+    height: 104px
+    background: linear-gradient(90deg, $grey-light 25%, $grey-border 50%, $grey-light 75%)
+    background-size: 200px 100%
+    animation: skeleton-shimmer 1.5s ease-in-out infinite
+
 .calendar
   &-container
     @media (max-width: $screen-sm)
@@ -19,17 +49,14 @@
       border: 1px solid #d1d5da
       border-radius: 3px
 
-  .month
-    fill: #767676
-    font-size: 9px
-  .wday
-    fill: #767676
-    font-size: 9px
+  .month, .wday
+    fill: $grey-dark
+    font-size: 10px
 
   &-footer
     padding: 0 16px 4px 16px
     margin: 4px 16px 0 16px
-    font-size: 11px
+    font-size: 12px
 
   &-legend
     color: #586069
@@ -50,13 +77,13 @@
     padding: 0
 
 .svg-tip
-  width: 200px // so that tooltip can get a stable absolute position
+  width: 200px
   position: absolute
   z-index: 999
   padding: 10px
   color: #bbb
   text-align: center
-  background: rgba(0, 0, 0, 0.8)
+  background: rgba($black, 0.8)
   border-radius: 3px
   font-size: 11px
   white-space: nowrap
@@ -73,10 +100,10 @@
   margin: 0 0 0 -5px
   content: " "
   border: 5px solid transparent
-  border-top-color: rgba(0, 0, 0, 0.8)
+  border-top-color: rgba($black, 0.8)
 
 .day:hover,
-.day.active 
+.day.active
   stroke-width: 1px
-  stroke: #000
+  stroke: $black
   shape-rendering: crispEdges

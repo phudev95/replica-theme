@@ -42,6 +42,12 @@
     created: function () {
       this.selectedDate = "none";
     },
+    ready: function () {
+      var skeleton = document.getElementById("calendar-skeleton");
+      if (skeleton) {
+        skeleton.style.display = "none";
+      }
+    },
     methods: {},
     computed: {
       svgtip: function () {

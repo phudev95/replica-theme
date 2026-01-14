@@ -36,7 +36,18 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
   </ul>
     </div>
     <div class="blog-description">
-      <%= config.description %>
+      <p>
+        <%= config.description %>
+      </p>
+
+      <% if (config.other_site && config.other_site.url) { %>
+      <p>
+        <%= config.other_site.text %>
+        <a href="<%= config.other_site.url %>" target="_blank">
+          <%= config.other_site.name || config.other_site.url %>
+        </a>
+      </p>
+      <% } %>
     </div>
   </div>
 
