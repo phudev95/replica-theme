@@ -110,4 +110,4 @@ postsArr.sort(function(a, b) {
 %>
 
 <script>tbGlobalData.posts = <%- JSON.stringify(postsArr) %>;</script>
-<script defer src="<%= config.root %>js/calendar.js"></script>
+<script defer src="<%= config.root %>js/calendar.js?r=<%= config.cacheVersion %>"></script>
